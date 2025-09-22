@@ -1,0 +1,52 @@
+// Arquivo: dw3backend/apps/pedidos/tests/testPedidos.rest
+
+### Obter token
+@token = PASTE_TOKEN_HERE_FROM_LOGIN
+
+### Teste de API /getAllPedidos
+GET http://localhost:40000/getAllPedidos HTTP/1.1
+content-type: application/json
+
+### Teste de API /getPedidoByID
+POST http://localhost:40000/getPedidoByID HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "pedidoid": 1
+}
+
+### Teste de API /insertPedido
+POST http://localhost:40000/insertPedido HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "numero": 1001,
+    "data": "2025-09-21",
+    "valortotal": 150.75,
+    "clienteid": 1
+}
+
+### Teste de API /updatePedido
+POST http://localhost:40000/updatePedido HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "pedidoid": 1,
+    "numero": 234,
+    "data": "2020-02-15",
+    "valortotal": 7000.00,
+    "clienteid": 2
+}
+
+
+### Teste de API /deletePedido
+POST http://localhost:40000/deletePedido HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "pedidoid": 1
+}

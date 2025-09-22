@@ -1,0 +1,60 @@
+// Arquivo: dw3backend/apps/clientes/tests/testClientes.rest
+
+### Obter token - Cole o token abaixo nas requisições que precisam
+POST http://localhost:40000/Login HTTP/1.1
+content-type: application/json
+
+{
+    "username": "qwe",
+    "password": "qwe"
+}
+
+###
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InF3ZSIsImlhdCI6MTc1ODUzOTMwMSwiZXhwIjoxNzU4NTM5OTAxfQ.S8QFbl5vrzwg5UL-3d15pX6azRcb84U6s_0KmXL_p2g
+
+### Teste de API /getAllClientes
+GET http://localhost:40000/getAllClientes HTTP/1.1
+content-type: application/json
+
+### Teste de API /getClienteByID
+POST http://localhost:40000/getClienteByID HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "clienteid": 1
+}
+
+### Teste de API /insertCliente
+POST http://localhost:40000/insertCliente HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "codigo": "CLI03",
+    "nome": "Novo Cliente Teste",
+    "endereco": "Rua Teste 123",
+    "ativo": true
+}
+
+### Teste de API /updateCliente
+POST http://localhost:40000/updateCliente HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "clienteid": 1,
+    "codigo": "CLI01-UPDATED",
+    "nome": "João da Silva Atualizado",
+    "endereco": "Rua A1 Atualizada",
+    "ativo": false
+}
+
+### Teste de API /deleteCliente
+POST http://localhost:40000/deleteCliente HTTP/1.1
+content-type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "clienteid": 2
+}

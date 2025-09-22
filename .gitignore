@@ -1,0 +1,5 @@
+# Ignora a pasta com as bibliotecas do Node.js
+node_modules/
+
+# Ignora o arquivo de variáveis de ambiente (contém senhas e segredos)
+.env
